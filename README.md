@@ -1,9 +1,23 @@
-# ⚡ ComfyUI for AMD Ryzen AI Max (Strix Halo)
-### The "Bleeding Edge" Docker Solution for RDNA 3.5
+<h1 align="center">comfyui-strix-docker</h1>
 
-![AMD ROCm](https://img.shields.io/badge/ROCm-7.x%20Preview-red) ![Docker](https://img.shields.io/badge/Docker-Verified-blue) ![Ubuntu](https://img.shields.io/badge/Base-Ubuntu%20Rolling-orange)
+<p align="center">
+  <strong>ComfyUI on AMD Strix Halo (RDNA 3.5 / gfx1151) via Docker. Ubuntu Rolling + UV-managed Python 3.12 + ROCm preview wheels. Fixes the silent CPU fallback Debian/Python 3.13 images hit on Strix Halo.</strong>
+</p>
 
-This repository provides a battle-tested Docker container for running **ComfyUI** on AMD's new **Strix Halo (Ryzen AI Max 300)** architecture. 
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Verified-brightgreen" alt="Status" />
+  <img src="https://img.shields.io/badge/AMD-Strix_Halo-ED1C24?logo=amd&logoColor=white" alt="AMD Strix Halo" />
+  <img src="https://img.shields.io/badge/ROCm-7.x_Preview-EF5B25?logo=amd&logoColor=white" alt="ROCm" />
+  <img src="https://img.shields.io/badge/Base-Ubuntu_Rolling-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu" />
+  <img src="https://img.shields.io/badge/Python-3.12_via_uv-3776AB?logo=python&logoColor=white" alt="Python 3.12" />
+  <img src="https://img.shields.io/badge/License-MIT-blue" alt="License" />
+</p>
+
+---
+
+## What this is
+
+A battle-tested Docker container for running **ComfyUI** on AMD's **Strix Halo (Ryzen AI Max 300)** architecture.
 
 It solves the common "silent failures" where standard containers fallback to CPU mode because they lack the specific preview drivers for `gfx1151`.
 
@@ -24,8 +38,8 @@ Standard Docker images (Debian/Ubuntu 22.04) fail on Strix Halo for three reason
 
 ### 1. Clone & Setup
 ```bash
-git clone https://github.com/hec-ovi/comfyui-strix-halo.git
-cd comfyui-strix-halo
+git clone https://github.com/hec-ovi/comfyui-strix-docker.git
+cd comfyui-strix-docker
 ```
 
 ### 2. Configure Permissions (Crucial!)
@@ -94,3 +108,11 @@ Map a local folder to the container so your models persist.
 ---
 
 *Verified Jan 2026 on Ryzen AI Max 300.*
+
+---
+
+## License
+
+[MIT](LICENSE) for the build glue in this repository (Dockerfile, docker-compose.yml, entrypoint.sh, .envTemplate, README, scripts).
+
+This repository does not redistribute ComfyUI source. The Dockerfile clones ComfyUI from `github.com/comfyanonymous/ComfyUI` at build time. ComfyUI is licensed under **GPL-3.0**. Any image built from this repository that bundles ComfyUI is therefore a derivative work of ComfyUI and is subject to GPL-3.0 when distributed. Building locally for personal use is fine; redistributing the resulting image, or any modified version of ComfyUI, requires complying with GPL-3.0.
