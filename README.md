@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Status-Verified_on_Strix_Halo-brightgreen" alt="Status" />
   <img src="https://img.shields.io/badge/AMD-Strix_Halo-ED1C24?logo=amd&logoColor=white" alt="AMD Strix Halo" />
   <img src="https://img.shields.io/badge/ROCm-7.13_(TheRock)-EF5B25?logo=amd&logoColor=white" alt="ROCm" />
   <img src="https://img.shields.io/badge/Base-Ubuntu_26.04_LTS-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu" />
@@ -117,6 +118,8 @@ Drop files in and hit "Refresh" in the UI.
   * `HSA_OVERRIDE_GFX_VERSION=11.5.1` pins the ISA for Strix Halo
   * `HSA_ENABLE_SDMA=0` and `HSA_USE_SVM=0` are the community stability fixes for unified memory (avoid GPU ring timeouts / checkerboard artifacts during VAE decode)
 * The build runs an `import torch; assert 'rocm' in torch.__version__` check, so a CPU-only torch fails the build instead of failing silently at runtime.
+
+**Verified** on a Ryzen AI Max+ 395 (gfx1151, June 2026): the image builds against `ubuntu:26.04` with `torch 2.9.1+rocm7.13.0a20260513`, and a FLUX.2 klein graph renders a 1024x1024 image in about 22s with the weights in GTT (unified RAM) and the VRAM carve-out left at its idle baseline.
 
 ## Troubleshooting
 
