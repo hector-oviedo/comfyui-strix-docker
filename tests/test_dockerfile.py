@@ -2,8 +2,8 @@
 
 These are config tests, not a build: they assert the exact things that make the
 image actually use the GPU on gfx1151, so a careless edit (floating torch, the
-wrong base image, a mismatched ROCm ABI set, a dropped stability env) fails CI
-instead of failing silently on the box. They need only pytest, no Docker.
+wrong base image, a mismatched ROCm ABI set, a dropped stability env) fails the
+test suite instead of failing silently on the box. They need only pytest, no Docker.
 """
 import re
 from pathlib import Path

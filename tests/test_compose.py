@@ -1,7 +1,7 @@
 """Sanity-check docker-compose.yml: the GPU wiring Strix Halo needs is present.
 
-Text-based so it runs with only pytest. If Docker is available the CI job also
-runs `docker compose config -q`, which fully validates interpolation/schema.
+Text-based so it runs with only pytest. If Docker is available, also run
+`docker compose config -q` locally, which fully validates interpolation/schema.
 """
 from pathlib import Path
 
